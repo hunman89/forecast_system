@@ -14,20 +14,20 @@ const useStyles = makeStyles({
     },
 });
 
-function createData(
-    name: string,
-    calories: number,
-    fat: number,
-    carbs: number,
-    protein: number
-) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [createData("Frozen yoghurt", 159, 6.0, 24, 4.0)];
-
-export default function Plan() {
+export default function Plan(props: any) {
     const classes = useStyles();
+
+    function createData(
+        name: string,
+        calories: number,
+        fat: number,
+        carbs: number,
+        protein: number
+    ) {
+        return { name, calories, fat, carbs, protein };
+    }
+    let [a, b, c, d, e] = props.plan;
+    const rows = [createData(a, b, c, d, e)];
 
     return (
         <>

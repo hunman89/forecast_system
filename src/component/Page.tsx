@@ -7,9 +7,9 @@ function Page(props: any) {
     return (
         <div style={{ width: "80%", margin: "auto" }}>
             <Chart data={props.data} />
-            <Forecast />
-            <Shipment />
-            <Plan />
+            <Forecast forecast={props.forecast} />
+            <Shipment shipment={props.shipment} />
+            <Plan plan={props.plan} />
         </div>
     );
 }

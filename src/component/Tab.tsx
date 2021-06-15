@@ -236,7 +236,10 @@ export default function ScrollableTabsButtonAuto() {
             amt: 2100,
         },
     ];
-
+    const shipment1 = ["Onion", 159, 6.0, 24, 4.0];
+    const shipment2 = ["Cow", 159, 6.0, 24, 4.0];
+    const shipment3 = ["Frozen yoghurt", 159, 6.0, 24, 4.0];
+    const shipment4 = ["Frozen yoghurt", 159, 6.0, 24, 4.0];
     return (
         <div className={classes.root}>
             <AppBar position="static" color="default">
@@ -256,16 +259,36 @@ export default function ScrollableTabsButtonAuto() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                <Page data={data} />
+                <Page
+                    data={data}
+                    forecast={shipment1}
+                    shipment={shipment1}
+                    plan={shipment1}
+                />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <Page data={data2} />
+                <Page
+                    data={data2}
+                    forecast={shipment2}
+                    shipment={shipment2}
+                    plan={shipment2}
+                />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <Page data={data3} />
+                <Page
+                    data={data3}
+                    forecast={shipment3}
+                    shipment={shipment3}
+                    plan={shipment3}
+                />
             </TabPanel>
             <TabPanel value={value} index={3}>
-                <Page data={data4} />
+                <Page
+                    data={data4}
+                    forecast={shipment4}
+                    shipment={shipment4}
+                    plan={shipment4}
+                />
             </TabPanel>
         </div>
     );

@@ -14,24 +14,20 @@ const useStyles = makeStyles({
     },
 });
 
-function createData(
-    name: string,
-    calories: number,
-    fat: number,
-    carbs: number,
-    protein: number
-) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-];
-
-export default function Shipment() {
+export default function Shipment(props: any) {
     const classes = useStyles();
 
+    function createData(
+        name: string,
+        calories: number,
+        fat: number,
+        carbs: number,
+        protein: number
+    ) {
+        return { name, calories, fat, carbs, protein };
+    }
+    let [a, b, c, d, e] = props.shipment;
+    const rows = [createData(a, b, c, d, e)];
     return (
         <>
             <Typography className={classes.top} variant="h5">
