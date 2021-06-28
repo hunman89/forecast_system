@@ -6,7 +6,8 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Page from "./Page";
-import OnionData from "../data/onion.json";
+import onionData from "../data/onion.json";
+import cowData from "../data/cow.json";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -58,9 +59,9 @@ export default function ScrollableTabsButtonAuto() {
         setValue(newValue);
     };
 
-    const data = OnionData;
+    const data = cowData;
 
-    const data2 = OnionData;
+    const data2 = onionData;
 
     const data3 = [
         {
@@ -142,7 +143,7 @@ export default function ScrollableTabsButtonAuto() {
             </AppBar>
             <TabPanel value={value} index={0}>
                 <Page
-                    header="한우 가격전망"
+                    header="한우 가격전망 (단위: 원/kg)"
                     data={data}
                     forecast={shipment1}
                     shipment={shipment1}
@@ -151,7 +152,7 @@ export default function ScrollableTabsButtonAuto() {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Page
-                    header="양파 가격전망 (원/20kg)"
+                    header="양파 가격전망 (단위: 원/20kg)"
                     data={data2}
                     forecast={shipment2}
                     shipment={shipment2}
