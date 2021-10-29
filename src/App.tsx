@@ -1,17 +1,15 @@
-import ScrollableTabsButtonAuto from "./component/Tab";
-import Typography from "@material-ui/core/Typography";
+import { Graph } from "./component/Graph";
+import { Header } from "./component/Header";
+import { Tab } from "./component/Tab";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="AppHeader" style={{ margin: "20px" }}>
-        <Typography variant="h3" align="center">
-          농축산업 경영정보 제공서비스
-        </Typography>
-      </header>
-      <ScrollableTabsButtonAuto />
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className="App">
+            <Header />
+            <Tab />
+            <Graph />
+        </div>
+    );
+};
 
 export default App;
