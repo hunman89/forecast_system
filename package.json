@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -11,6 +12,7 @@
     "@types/react": "^17.0.10",
     "@types/react-dom": "^17.0.7",
     "chart.js": "^3.6.0",
+    "graphql": "^15.7.2",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.3.0",
     "react-dom": "^17.0.2",
@@ -22,7 +24,8 @@
     "start": "NODE_ENV=development npx tailwindcss -i ./src/tailwind.css -o ./src/tailwind_out.css && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "apollo:codegen": "rm -rf src/__generated__ & apollo client:codegen src/__generated__ --target=typescript --outputFlat"
   },
   "eslintConfig": {
     "extends": [

@@ -1,30 +1,46 @@
+import { gql, useQuery } from "@apollo/client";
 import { Line } from "react-chartjs-2";
+import { chartData } from "../__generated__/chartData";
 
-const data = {
-  labels: ["1", "2", "3", "4", "5", "6"],
-  datasets: [
-    {
-      label: "가격",
-      data: [12, 19, 3, 5, NaN, NaN],
-      fill: false,
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgba(255, 99, 132, 0.2)",
-    },
-    {
-      label: "예측값",
-      data: [NaN, NaN, NaN, 5, 6, 7],
-      fill: false,
-      backgroundColor: "rgb(54, 162, 235)",
-      borderColor: "rgba(54, 162, 235, 0.2)",
-    },
-  ],
-};
-
-const options = {
-  scales: {},
-};
+const CHART_DATA_QUERY = gql`
+  query chartData {
+    chartData {
+      labels
+      kamisData
+      predictedData
+    }
+  }
+`;
 
 export const Graph = () => {
+  const { data, loading, error } = useQuery<chartData>(CHART_DATA_QUERY);
+
+  const chartData = {
+    labels: data?.chartData.labels,
+    datasets: [
+      {
+        label: "가격",
+        data: data?.chartData.kamisData,
+        fill: false,
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgba(255, 99, 132, 0.2)",
+      },
+      {
+        label: "예측값",
+        data: data?.chartData.predictedData,
+        fill: false,
+        backgroundColor: "rgb(54, 162, 235)",
+        borderColor: "rgba(54, 162, 235, 0.2)",
+      },
+    ],
+  };
+
+  const options = {
+    layout: {
+      padding: 20,
+    },
+    scales: {},
+  };
   return (
     <>
       <div className="flex justify-center pt-24">
@@ -32,7 +48,7 @@ export const Graph = () => {
         <p className="text-3xl font-bold text-red-700 px-2">예측</p>
         <p className="text-3xl px-2">&#x1F680;</p>
       </div>
-      <Line data={data} options={options} />
+      <Line className=" p-32" data={chartData} options={options} />
     </>
   );
 };
