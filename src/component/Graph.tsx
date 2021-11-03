@@ -13,7 +13,7 @@ const CHART_DATA_QUERY = gql`
 `;
 
 export const Graph = () => {
-  const { data, loading, error } = useQuery<chartData>(CHART_DATA_QUERY);
+  const { data } = useQuery<chartData>(CHART_DATA_QUERY);
 
   const chartData = {
     labels: data?.chartData.labels,
@@ -39,7 +39,11 @@ export const Graph = () => {
     layout: {
       padding: 20,
     },
-    scales: {},
+    scales: {
+      x: {
+        ticks: { stepSize: 200 },
+      },
+    },
   };
   return (
     <>

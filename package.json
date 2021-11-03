@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development npx tailwindcss -i ./src/tailwind.css -o ./src/tailwind_out.css && react-scripts start",
-    "build": "react-scripts build",
+    "build": "NODE_ENV=production npx tailwindcss -i ./src/tailwind.css -o ./src/tailwind_out.css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "apollo:codegen": "rm -rf src/__generated__ & apollo client:codegen src/__generated__ --target=typescript --outputFlat"
