@@ -52,9 +52,7 @@ export const Graph = () => {
         <p className="text-3xl font-bold text-red-700 px-2">예측</p>
         <p className="text-3xl px-2">&#x1F680;</p>
       </div>
-      <div className="flex justify-center p-3 pl-44">
-        <p className="text-md px-2">등심 100g</p>
-      </div>
+      
       <Line className=" p-32" data={chartData} options={options} />
     </>
   );
